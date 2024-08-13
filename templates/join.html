@@ -1,17 +1,32 @@
 {% extends "base.html" %}
-{% block title %}{% endblock %}
+{% block title %}Coffee{% endblock %}
 {% block content %}
-<form method="POST"> 
-    <label>Enter Name:</label> 
-    <input type="name" name="name" placeholder="Enter your name" required><br/> 
-    <label>Enter Email:</label> 
-    <input type="email" name="email" placeholder="Enter your email" required><br/> 
+<center><br><h2 style="text-decoration: underline;">Register Form</h2><hr>
+<form action="{{ url_for('join') }}" method="POST"> 
+    
+    <label>Enter Your First Name:</label> 
+    <input type="text" name="first_name" placeholder="Bob" required/> <br><br>
+    
+    <label>Enter Your Last Name:</label> 
+    <input type="text" name="last_name" placeholder="Smith" required/> <br><br>
+
+    <label>Enter Address:</label> 
+    <input type="text" name="address" placeholder="123 Main Street" /> <br><br>
+    
     <label>Enter City:</label> 
-    <input type="name" name="city" placeholder="Enter your City name" required><br/> 
-    <label>Enter Country:</label> 
-    <input type="name" name="country" placeholder="Enter the Country name" required><br/> 
-    <label>Enter phone num:</label> 
-    <input type="name" name="phone" placeholder="Your Phone Number" required><br/> 
-    <input type = "submit" value = "submit"/><br/> 
-</form> 
+    <input type="text" name="city" placeholder="" /> <br><br>
+    
+    <label>Enter Email:</label> 
+    <input type="text" name="email" placeholder="bob.smith@email.com" required/> <br><hr><br>
+    
+    <label>Enter Username:</label>
+    <input type="text" name="username" placeholder="bobsmith" required/> <br><br>
+
+    <label>Enter Password:</label>
+    <input type="password" name="password" required/> <br><br>
+     
+
+    <input type="submit" value="Submit" />
+
+</form></center>
 {% endblock %}
