@@ -14,240 +14,245 @@ body {
 }
 
 /* Navbar */
+
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100px;
-    padding: 10px 90px;
+    height: 80px; 
+    padding: 10px 20px; 
     box-sizing: border-box;
-    background: #393d47;
-    border-bottom: 1px solid #fff;
-    margin-bottom: 110px;
+    background: #393d47; 
+    border-bottom: 1px solid #fff; 
+    z-index: 1000; 
 }
+
 
 nav .logo {
-    padding: 22px 20px;
-    height: 80px;
-    float: left;
-    font-size: 24px;
+    font-size: 24px; 
     font-weight: bold;
     text-transform: uppercase;
-    color: #D89B31;
+    color: #D89B31; 
+    float: left; 
+    margin-right: 20px; 
 }
 
-nav ul {
-    list-style: none;
-    float: right;
-    margin: 0;
+
+ul.navbar-nav {
+    list-style: none; 
     padding: 0;
-    display: flex;
+    margin: 0;
+    display: flex; 
+    align-items: center; 
+    border-bottom: 2.5px solid #fff;
 }
 
-nav ul li {
-    position: relative;
+ul.navbar-nav:hover {
+    border-bottom: 5px solid #fff; 
 }
 
-nav ul li a {
-    line-height: 80px;
-    color: #fff;
-    padding: 12px 30px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-right: 5px;
+
+.dropdown-item:hover, .dropdown-item:active {
+    font-size: 16px; 
+    background-color: #00a794; 
+    color: #fff; 
 }
 
-nav ul li a:hover {
-    animation-name: anim;
-    animation-duration: 0.5s;
-    background-color: lightgray;
-    border-radius: 10px;
-    color: black;
+
+a.dropdown-item {
+    text-align: center;
+    padding: 10px; 
 }
 
-.current-page {
-    background-color: lightgray;
-    border-radius: 10px;
-    color: black;
-}
 
-.current-dropdown {
-  border-radius: 10px;
-  border: 2px solid slateblue;
-  color: black;
-}
-
-.login-register {
-    color: #D89B31;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-/* Dropdown*/
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #393d47;
-    min-width: 223px;
-    z-index: 1;
-    top: 100%;
-    left: 0;
-    border-radius: 15px;
-    border-bottom: 1px solid #fff;
-}
-
-.dropdown:hover .dropdown-content {
-    animation-name: dropdownAnim;
-    animation-duration: 0.5s;
-    display: block;
-}
-
-.dropdown-content li {
-    padding: 5px 10px;
-    text-align: left;
-    margin: 5px 0;
-}
-  
-/* Footer */
-#footer {
-    position: fixed;
-    width: 100%;
-}
-
-.footer_whole {
-    background-color: #393d47;
-    border-top: 1px solid #fff;
-    text-align: center; 
-    padding: 20px 0; 
-}
-
-.footer-link {
-    color: #D89B31;
-    font-size: 18px;
-    margin: 0 20px; 
+a.nav-link {
+    color: #fff; 
     text-decoration: none; 
+    padding: 10px 15px; 
+    display: block; 
 }
 
-.footer-link:hover {
-    cursor: pointer;
+a.nav-link:hover {
+    font-size: 16px; 
+    font-weight: bold; 
+    background-color: #333; 
+    border-radius: 4px; 
 }
 
-.serving {
-    margin-top: 39px;
-    font-family: 'Zeyada', cursive;
-    text-align: center;
-    color: #D89B31;
+
+.d-flex .btn {
+    margin-left: 15px;
+    background-color: transparent; 
+    border: 1px solid #00a794;
+    color: #00a794; 
+    padding: 10px 20px; 
+    border-radius: 4px; 
+    transition: background-color 0.3s, color 0.3s; 
 }
 
-#PrivacyP, #CookieP, #TandC {
-    color: #D89B31;
-    display: inline-block; 
-    box-sizing: border-box; 
-    margin-top: 10px;
-    font-size: 30px;
-    background-color: #393d47;
+.d-flex .btn:hover {
+    background-color: #D89B31; 
+    color: #fff; 
 }
 
-#PrivacyP:hover, #CookieP:hover, #TandC:hover {
-    animation-name: footerAnim;
-    animation-duration: 0.5s;
-    color: #fff;
-}
+/* End Navbar */
 
-/* Social Media Buttons */
-.socialMedia {
-    margin-top: 39px;
-    display: flex;
-    justify-content: center;
-}
-
-.socialButton {
-    display: flex;
-    height: 50px;
-    width: 50px;
-    margin: 0 15px;
-    border-radius: 8px;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background-color: #fff;
-}
-
-.socialButton i {
-    font-size: 25px;
-    color: gray;
-}
-
-/* Other */
-.bg {
-    margin-bottom: 1PX;
-    margin-top: 100px;
+footer {
+    position: fixed;
+    bottom: 0px;
+    color: white;
+    background-color: #393d47 ;
     width: 100%;
-    height: 595px;
-    background: url(assets/images/Coffe-1.jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-.Locations {
-    margin-top: -20px;
-    width: 99.99%;
-}
-
-.LocationTitle {
     text-align: center;
-    font-size: 50px;
-    text-decoration-line: underline;
-    color: #fff;
-    font-weight: bold;
 }
 
-.Location {
-    margin-top: -33px;
-    background-color: rgba(22.4, 23.9, 27.8, 0.775);
-}
 
-@keyframes anim {
-    from {background-color: gray;} 
-    to {background-color: lightgray;}
-}
-
-@keyframes dropdownAnim {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes footerAnim {
-    from {color: #D89B31;}
-    to {color: #fff;}
-}
-
-.utcenter{
+.serving{
+    background-color: #D89B31;
+    color: black;
+    padding: 10px;
     text-align: center;
+}
+
+
+.serving h2{
     text-decoration: underline;
 }
 
-p{
-    margin-left: 20%;
-    margin-right: 20%;
-    font-size: 20px;
-}
-h3{
-    margin-left: 20%;
-    margin-right: 20%;
-    font-size: 22.5px;
+.serving p{
+    font-size: smaller;
 }
 
-.content{
-  margin-top: 100px;
-  font-family: "Edu AU VIC WA NT Hand", cursive;
+td{
+    padding: 12.5px;
 }
 
-input {
-    border-radius: 10px;
-    border: 2px solid rgb(0, 0, 0);
+table{
+    margin-left: 20%;
+    margin-right: 20%;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+.page-title {
+    margin-top: 10px; 
     text-align: center;
 }
+
+/* Start Form*/
+
+input[type="text"], input[type="password"] {
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+    height: 40px;
+    line-height: 20px;
+    transition: border-color 0.3s ease;
+}
+
+
+input:focus {
+    border-color: #00a794; 
+    outline: none;
+}
+
+
+input + input, label {
+    margin-top: 20px;
+}
+
+
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+}
+label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="submit"] {
+    background-color: #00a794; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #007f6b; 
+}
+
+
+@media (max-width: 768px) {
+    form {
+        max-width: 100%; 
+        padding: 15px;
+    }
+
+    input[type="text"], input[type="password"], input[type="submit"] {
+        font-size: 14px; 
+        height: 36px; 
+    }
+}
+/* End Form*/
+
+
+/*Start Result Page*/
+.result-container {
+    width: 90%; 
+    max-width: 800px; 
+    height: 40vh; 
+    margin: 10vh auto; 
+    padding: 30px;
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.result-container h2 {
+    font-size: 26px; 
+    color: #00a794; 
+
+}
+.result-container a {
+    font-size: 18px;
+    color: #007bff; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: color 0.3s ease; 
+}
+
+.result-container a:hover {
+    color: #0056b3; 
+}
+
+input{
+    max-width: 800px;
+}
+
+/*End Result Page*/
+

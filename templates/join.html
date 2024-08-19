@@ -1,32 +1,32 @@
 {% extends "base.html" %}
-{% block title %}Coffee{% endblock %}
+{% block title %}Register Form{% endblock %}
 {% block content %}
-<center><br><h2 style="text-decoration: underline;">Register Form</h2><hr>
-<form action="{{ url_for('join') }}" method="POST"> 
-    
-    <label>Enter Your First Name:</label> 
-    <input type="text" name="first_name" placeholder="Bob" required/> <br><br>
-    
-    <label>Enter Your Last Name:</label> 
-    <input type="text" name="last_name" placeholder="Smith" required/> <br><br>
+<br><br>
+<form action="{{ url_for('join') }}" method="POST">
+    <h2 style="text-align: center;">Register Form</h2><hr>
+    <label>Enter Your First Name:</label>
+    <input type="text" name="first_name" placeholder="Bob" required/>
 
-    <label>Enter Address:</label> 
-    <input type="text" name="address" placeholder="123 Main Street" /> <br><br>
-    
-    <label>Enter City:</label> 
-    <input type="text" name="city" placeholder="" /> <br><br>
-    
-    <label>Enter Email:</label> 
-    <input type="text" name="email" placeholder="bob.smith@email.com" required/> <br><hr><br>
-    
+    <label>Enter Your Last Name:</label>
+    <input type="text" name="last_name" placeholder="Smith" required/>
+
+    <label>Enter Address:</label>
+    <input type="text" name="address" placeholder="123 Main Street"/>
+
+    <label>Enter City:</label>
+    <input type="text" name="city" placeholder="Cardiff"/>
+
+    <label>Enter Email:</label>
+    <input type="text" name="email" placeholder="bob.smith@email.com" required/>
+
     <label>Enter Username:</label>
-    <input type="text" name="username" placeholder="bobsmith" required/> <br><br>
+    <input type="text" name="username" placeholder="bobsmith" required/>
 
     <label>Enter Password:</label>
-    <input type="password" name="password" required/> <br><br>
-     
+    <input type="password" name="password" required/>
 
-    <input type="submit" value="Submit" />
+    <hr>
+    <input type="submit" value="Submit"/>
+</form>
 
-</form></center>
 {% endblock %}

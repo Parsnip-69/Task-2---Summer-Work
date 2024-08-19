@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}My Account{% endblock %}
+{% block content %}
+<style>
+    .account-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-family: "Edu AU VIC WA NT Hand", cursive;
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .bold {
+        font-weight: bold;
+    }
+
+    .account-info span {
+        font-weight: bold;
+    }
+
+    a {
+        color: #00a794;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<br><br>
+<div class="account-container">
+    <h2>My Account</h2> <hr>
+    
+    <table>
+        <tr>
+            <td class="bold">Username:</td>
+            <td>{{ username }}</td>
+        </tr>
+        <tr>
+            <td class="bold">First Name:</td>
+            <td>{{ first_name }}</td>
+        </tr>
+        <tr>
+            <td class="bold">Last Name:</td>
+            <td>{{ last_name }}</td>
+        </tr>
+        <tr>
+            <td class="bold">Address:</td>
+            <td>{{ address }}</td>
+        </tr>
+        <tr>
+            <td class="bold">City:</td>
+            <td>{{ city }}</td>
+        </tr>
+        <tr>
+            <td class="bold">Email:</td>
+            <td>{{ email }}</td>
+        </tr>
+        </table>
+        <hr>
+        <a style="text-align: center;" href="{{ url_for('logout') }}">Logout</a>
+</div>
+{% endblock %}
