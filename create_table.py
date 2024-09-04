@@ -29,7 +29,8 @@ CREATE TABLE personal_details (
     firstName TEXT,
     lastName TEXT,
     address TEXT,
-    city TEXT
+    city TEXT,
+    email TEXT
 )''')
 print("Personal Details table created successfully")
 
@@ -133,8 +134,8 @@ print("Instructor Expertise table created successfully")
 
 # Insert test data
 conn.execute('''
-INSERT INTO personal_details (firstName, lastName, address, city)
-VALUES ('Bob', 'Smith', '123 Main Street', 'Cardiff')
+INSERT INTO personal_details (firstName, lastName, address, city, email)
+VALUES ('Bob', 'Smith', '123 Main Street', 'Cardiff', 'bob.smith@email.com')
 ''')
 
 conn.execute('''
