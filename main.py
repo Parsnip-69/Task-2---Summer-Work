@@ -1,9 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
 from flask_bcrypt import Bcrypt
-import stripe
-
-stripe.api_key = 'sk_test_51Pv04PP40o7MRH4j3ASKDSgRrLQwVaWqgI8T3GFsBNUnH20cvDFbWjj39trjbEoH3mHVqm1NfvtqWCvZDB4uwzQM00hCHXVShw'
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -114,39 +111,6 @@ def account():
 def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
-
-
-@app.route('/create-checkout-session', methods=['POST'])
-def create_checkout_session():
-    try:
-        session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
-            line_items=[{
-                'price_data': {
-                    'currency': 'usd',
-                    'product_data': {
-                        'name': 'Baked Goods',  # Customize based on the product
-                    },
-                    'unit_amount': 500,  # Amount in cents ($5.00)
-                },
-                'quantity': 1,
-            }],
-            mode='payment',
-            success_url=url_for('success', _external=True),
-            cancel_url=url_for('cancel', _external=True),
-        )
-        return redirect(session.url, code=303)
-    except Exception as e:
-        return str(e)
-
-@app.route('/success')
-def success():
-    return "Payment succeeded!"
-
-@app.route('/cancel')
-def cancel():
-    return "Payment canceled!"
-
 
 if __name__ == "__main__":
     app.run(debug=True)
