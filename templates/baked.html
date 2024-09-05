@@ -1,12 +1,159 @@
 {% extends "base.html" %}
-{% block title %}Coffee{% endblock %}
+{% block title %}Baked Goods{% endblock %}
 {% block content %}
-<h1 style="text-align: center;">Baked Goods Page</h1>
+<style>
+    .initial-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-size: 18px;
+    }
+    .initial-container button {
+        background-color: #00a794;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 10px;
+    }
+    .initial-container button:hover {
+        background-color: #008f7a;
+    }
 
-<form action="{{ url_for('create_checkout_session') }}" method="POST">
-    <button type="submit">Order Now</button>
-</form>
+    /* Styles for the form */
+    .hidden {
+        display: none;
+    }
 
+.payment-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.payment-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Style for labels */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style for input fields and selects */
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style for buttons */
+button {
+    background-color: #00a794;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #008f7a;
+}
+
+/* Style for payment message */
+#payment-message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: red;
+}
+
+/* Style for total price */
+#total-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+</style>
+
+<div class="payment-container">
+    <h2>Baked Goods - Select & Pay</h2>
+
+    <!-- Product Selection Form -->
+    <form id="product-selection-form">
+        <div class="form-group">
+            <label for="product-select">Select Your Product:</label>
+            <select id="product-select" name="product" required>
+                <option value="" disabled selected>Select your baked good</option>
+                <option value="1000" data-price="10">Chocolate Chip Cookies - £10.00</option>
+                <option value="1500" data-price="15">Blueberry Muffins - £15.00</option>
+                <option value="2000" data-price="20">Lemon Cake - £20.00</option>
+            </select>
+        </div>
+
+        <!-- Conditional Name Input -->
+        {% if not session.get('username') %}
+        <div class="form-group">
+            <label for="customer-name">Your Name:</label>
+            <input type="text" id="customer-name" name="customer-name" placeholder="Enter your name" required>
+        </div>
+        {% else %}
+        <input type="hidden" id="customer-name" name="customer-name" value="{{ session.get('username') }}">
+        {% endif %}
+
+        <!-- Conditional Email Input -->
+        {% if not session.get('username') %}
+        <div class="form-group">
+            <label for="customer-email">Your Email:</label>
+            <input type="email" id="customer-email" name="customer-email" placeholder="Enter your email" required>
+        </div>
+        {% else %}
+        <input type="hidden" id="customer-email" name="customer-email" value="{{ session.get('email') }}">
+        {% endif %}
+
+        <div id="total-price">Total: £0.00</div>
+
+        <button type="button" id="start-payment-button">Proceed to Payment</button>
+    </form>
+
+    <!-- Payment form container (hidden by default) -->
+    <div id="payment-container" style="display: none;">
+        <br><br>
+        <h2>Enter Payment Details</h2>
+        <form id="payment-form">
+            <div id="card-element" class="form-group"></div>
+            <button id="submit-button" type="submit">Pay Now</button>
+            <div id="payment-message" class="hidden"></div>
+        </form>
+    </div>
+</div>
+
+<!-- Stripe JS library -->
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/checkout.js') }}"></script>
 {% endblock %}
-
-    
