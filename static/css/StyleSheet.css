@@ -24,7 +24,7 @@ nav {
     padding: 10px 20px; 
     box-sizing: border-box;
     background: #393d47; 
-    border-bottom: 1px solid #fff; 
+    border-bottom: 1px solid #000000; 
     z-index: 1000; 
 }
 
@@ -113,6 +113,7 @@ footer {
     color: black;
     padding: 10px;
     text-align: center;
+    border-bottom: 2px solid black;
 }
 
 
@@ -256,3 +257,6 @@ input{
 
 /*End Result Page*/
 
+.col{
+    padding: 1%;
+}
